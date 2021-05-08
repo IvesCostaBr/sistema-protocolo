@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from painel import urls as painel_urls
+from home import urls as home_urls
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('painel/', include(painel_urls)),
+    path('', include(home_urls)),
 ]

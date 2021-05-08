@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block main %}
-<h3>Deseja excluir o Cadastro {{funcionario.id}} ?</h3>
-    <form method="POST" enctype="multipart/form-data">
+<h3>Deseja excluir o Cadastro {{user.id}} ?</h3>
+    <form method="POST">
     {% csrf_token %}
-    <buton type="submit">Deletar</buton>
+    <button type="submit">Excluir</button>
 </form>
 {% endblock %}

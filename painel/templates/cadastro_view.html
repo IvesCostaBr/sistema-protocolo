@@ -6,9 +6,12 @@
     <p>Autenticado</p>
 {% endif %}
 
-{% for c in cadastros %}
+{% for c in cadastros %} <br>
     {{ c.nome_completo }}
     {{ c.cpf }}
     {{ c.setor }}
+
+    <a href="{% url 'deletar_func' c.id %}" >Deletar</a>
+    <a href="{% url 'edit_fun' c.id %}">Editars</a>
 {% endfor %}
 {% endblock %}%
