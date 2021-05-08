@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     #myapss
     'painel',
+    'home',
 ]
 
 MIDDLEWARE = [

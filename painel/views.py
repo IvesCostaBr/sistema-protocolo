@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from .forms import FuncionarioForm
 from .models import Funcionario
 # Create your views here.
@@ -14,3 +14,12 @@ def adicionar_func(request):
             form.save()
             return HttpResponse('Cadastro realizado')
     return render(request, 'gestao.html', {'form':form})
+
+
+
+
+def mostar_funcionarios(request):
+    if request.method == 'POST':
+        cadastros = Funcionario.objects.all()
+    
+    return render(request, 'cadastro_view.html', {'cadastros':cadastros})
