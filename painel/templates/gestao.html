@@ -2,12 +2,21 @@
 
 {% block main %}
 
-<div class="container">
-    <form class="form-control"  method="POST">
-        {% csrf_token %}
-        {{form}}
-        <button type="submit">Cadastrar</button>
-    </form>
+<div  class="container">
+    <div class="jumbotron" class="row">
+        <form  method="POST">
+            <h3>Cadastro Funcionario</h3>
+            {% csrf_token %}
+            {{form}}
+            <br>
+            <button class="btn btn-success" type="submit">Cadastrar</button>
+            <a class="btn btn-danger" href="{% url 'painel_home' %}">Cancelar Cadastro</a>
+        </form>
+    </div>
 </div>
 
+{% endblock %}
+
+{% block footer %}  
+    {% include 'footer.html' %}
 {% endblock %}
