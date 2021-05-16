@@ -1,16 +1,18 @@
 from django.contrib import admin
 from django.urls import path, include
-from painel import urls as painel_urls
 from home import urls as home_urls
 from django.conf import settings
 from django.conf.urls.static import static
 import debug_toolbar
 from django.contrib.auth import views as auth_views
+from django.shortcuts import render
+
 
 from rest_framework import routers
-from .views import UserViewSet, GroupViewSet
+from .views import UserViewSet, GroupViewSet, page_404_personalizada
 
 from painel.views import ContatoViewSet
+from home import urls as home_urls
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
@@ -24,7 +26,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('painel/', include(painel_urls)),
+    path('acess_deined/', page_404_personalizada, name='404_page'),
+    path('', include(home_urls)),
     path('', include(home_urls)),
     path('__debug__/', include(debug_toolbar.urls)),
     path('rest-api/', include(router.urls)),

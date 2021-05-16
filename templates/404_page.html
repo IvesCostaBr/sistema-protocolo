@@ -1,0 +1,20 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/404_page.css' %}">
+
+<div class="scene">
+  <div class="overlay"></div>
+  <div class="overlay"></div>
+  <div class="overlay"></div>
+  <div class="overlay"></div>
+  <span class="bg-403">403</span>
+  <div class="text">
+    <span class="hero-text"></span>
+    <span class="msg"> Sem  <span>permissão</span> para Acesso</span>
+    <span class="support">
+      <span>Suporte</span>
+      <a href="{% url 'homepage' %}">Entre em contato conosco:)</a>
+    </span>
+  </div>
+  <div class="lock"></div>
+</div>
+

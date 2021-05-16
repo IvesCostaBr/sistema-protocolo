@@ -1,7 +1,12 @@
 from django.db import models
 from funcionario.models import Funcionario
 from datetime import datetime
+from django.db.models import Count, Min, Max, F, Avg
 # Create your models here.
+
+class ProtocoloManager(models.Manager):
+    def total(self):
+        return self.all().aggregate(Count('id'))['id__count']
 
 class Protocolo(models.Model):
     funcionario = models.ForeignKey(Funcionario, null=True, on_delete=models.DO_NOTHING)
@@ -11,8 +16,8 @@ class Protocolo(models.Model):
     data_final =  models.DateField(blank=True, null=True)
     file =  models.FileField(upload_to='', blank=True, null=True)
 
-    def enviando_protocolo(self):
-        return 'enviando protocolo'
+    objects = ProtocoloManager()
+
 
     def __str__(self):
         return str(self.id) + '   ' + str(self.funcionario)

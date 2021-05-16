@@ -2,6 +2,7 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
 from .Serializer import UserSerializer, GroupSerializer
+from django.shortcuts import render
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -20,3 +21,6 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+def page_404_personalizada(request):
+    return render(request, '404_page.html')

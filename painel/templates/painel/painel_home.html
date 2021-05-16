@@ -6,47 +6,34 @@
 
 {% block main %}
 
-<a href="{% url 'logout'  %}"  >Sair</a>
-    <h1>PAINEL HOME</h1>
-    
-    <div class="row">
-        <div class="col-lg">
-            <h5>Funcionario</h5>
-            <a class="btn btn-primary" href="{% url 'funcionario_home' %}">Configurações de Funcionarios</a>
+{% include 'header.html' %}
 
-            <h5>Protocolo</h5>
-            <a class="btn btn-primary" href="{% url 'protocolo_home' %}" >Configurações de Protocolo</a>
+<h1 style="text-align:center;">PAINEL HOME </h1>
 
-            <h5>Setor</h5>
-            <a class="btn btn-primary" href="{% url 'protocolo_home' %}" >Configurações de Setor</a>
+<br>
+<div class="row g-2">
+    <div class="col-6">
+        <div class="p-3 border bg-light">
+        <a class="btn btn-danger" href="#" >Configurações de Setor</a>
+        </div>
+        <br>
+    </div>
+    <div class="col-6">
+        <div class="p-3 border bg-light">
+        <a class="btn btn-primary" href="{% url 'funcionario_home' %}">Configurações de Funcionarios</a>
+    </div>
+    <br>
+    </div>
+    <div class="col-6">
+        <div class="p-3 border bg-light">
+        <a class="btn btn-primary" href="{% url 'protocolo_home' %}" >Configurações de Protocolo</a>
         </div>
     </div>
-
-    <script>
-        function mostrar(){
-            var a  = 12
-            var b = 12
-            var result = a + b
-            alert(result);
-        }
-    </script>
-    <h2>-------------------------------------------------------</h2>
-    <button type="button" onclick="mostrar();">Alert</button>
-    <!-- PARTE DE FILTERS -->
-        <br>
-    {% filter force_escape|upper %}
-        tudo em caixa alta
-    {% endfilter %}
-        <br>
-    {% filter force_escape|lower %}
-        TUDO EM MINUSCÚLO
-    {% endfilter %}
-    <br>
-    <!--Filter now padrão do django-->
-    {% now "j D M Y h:m:s" %}
-    <br>
-    <!--Filter personalizado-->
-    <!-- 12|adiciona_array -->
-
-    
+    <div class="col-6">
+        <div class="p-3 border bg-light">
+        <a class="btn btn-primary" href="{% url 'protocolo_home' %}" >Configurações de Setor</a>
+        </div>
+    </div>
+    </div>
+    <a class="bt btn-allert" href="{% url 'homepage' %}">Voltar</a>
 {% endblock %}
