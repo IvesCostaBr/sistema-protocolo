@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Menu | Funcionario {% endblock %}
+
+{% block main %}
+
+    <a class="btn btn-primary" href="{% url 'add_func' %}">Adicionar Funcionario</a>
+    <a class="btn btn-primary" href="{% url 'funcionario_view' %}">Exibir Funcionarios</a>
+
+{% endblock %}

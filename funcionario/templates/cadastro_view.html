@@ -1,17 +1,21 @@
 {% extends "base.html"%}
 
-{% block main %}
+{% block title %} Lista | Funcionario {% endblock %}
 
+{% block main %}
 {% if user.is_authenticated %}
-    <p>Autenticado</p>
+    <p>Bem Vindo {{ user.pass }}</p>
 {% endif %}
 
 {% for c in cadastros %} <br>
     {{ c.nome_completo }}
     {{ c.cpf }}
     {{ c.setor }}
-
     <a href="{% url 'deletar_func' c.id %}" >Deletar</a>
-    <a href="{% url 'edit_fun' c.id %}">Editars</a>
+    <a href="{% url 'edit_fun' c.id %}">Editar</a>
+
+    {% empty %}
+        <p> Sem Cadastros encontrados! </p>
 {% endfor %}
+
 {% endblock %}%

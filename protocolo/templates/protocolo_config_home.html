@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %} Menu | Protocolos {% endblock %}
+
+{% block main %}
+    <a class="btn btn-success " href="{% url 'list_protocol' %}">Mostrar Todos os Protocolos</a>
+    <a class="btn btn-primary " href="{% url 'protocolo_form'%}">Criar novo Protocolo</a>
+    <a class="btn btn-danger" href="{% url 'painel_home' %}">Voltar</a>
+{% endblock %}

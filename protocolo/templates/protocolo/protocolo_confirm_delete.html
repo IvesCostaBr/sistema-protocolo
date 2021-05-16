@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %} Excluir Cadastro | Protocolo Config {% endblock %}
+
+
+{% block main %}
+
+<p>Deseja mesmo apagar o protocolo de Numero : {{ protocolo.id }}</p>
+    <form method="post">  
+        {% csrf_token %}
+        <button type="submit">Apagar</button>   
+    </form>
+    
+
+{% endblock %}

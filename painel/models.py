@@ -1,27 +1,24 @@
 from django.db import models
-
+from datetime import datetime
+from django.db.models import signals
+from django.dispatch import receiver
 # Create your models here.
 
-class Funcionario(models.Model):
-    nome_completo = models.CharField(
-        max_length=90)
+class Contato(models.Model):
+    nome = models.CharField(max_length=50)
+    email = models.EmailField(max_length=50)
+    phone = models.CharField(max_length=13)
+    message = models.TextField(max_length=300)
 
-    cpf = models.CharField(
-        max_length=15)
-
-    data_nascimento = models.DateField(
-        null=True, blank=True)
-
-    setor = models.CharField(
-        max_length=30)
-
-    status_empresa = models.CharField(
-        max_length=20)
-
-
-    def notify_cadastro(self):
-        pass
+    def send_email(self):
+        return 'email enviado'
 
     def __str__(self):
-        return str(self.id) + '   ' + str(self.nome_completo)
+        return self.nome + self.email + self.phone + self.message
+
+
+#@receiver(signals.post_delete, sender=Protocolo)
+#def send_email_admin(sender, instance, **kwargs):
+#    c = instance.enviando_protocolo()
+#    print(c)
     

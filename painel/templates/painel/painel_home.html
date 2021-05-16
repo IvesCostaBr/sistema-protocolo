@@ -1,13 +1,52 @@
 {% extends "base.html" %}
+{% load filters %}
+{% load mytags %}
+
+{% block stitle %} Painel | Admin  {% endblock %}
 
 {% block main %}
-    <h1>PAINEL HOMe</h1>
-    <a href='{%  url 'add_func' %}'>Cadastrar</a>
 
-    <h3>Mostrar Cadastro</h3>
-    <form  class="form-control" method="post" action="{% url 'funcionario_view' %}">
-        {% csrf_token %}
-        <button type="submit">Mostrar Cadastros</button>
-    </form>
+<a href="{% url 'logout'  %}"  >Sair</a>
+    <h1>PAINEL HOME</h1>
+    
+    <div class="row">
+        <div class="col-lg">
+            <h5>Funcionario</h5>
+            <a class="btn btn-primary" href="{% url 'funcionario_home' %}">Configurações de Funcionarios</a>
 
+            <h5>Protocolo</h5>
+            <a class="btn btn-primary" href="{% url 'protocolo_home' %}" >Configurações de Protocolo</a>
+
+            <h5>Setor</h5>
+            <a class="btn btn-primary" href="{% url 'protocolo_home' %}" >Configurações de Setor</a>
+        </div>
+    </div>
+
+    <script>
+        function mostrar(){
+            var a  = 12
+            var b = 12
+            var result = a + b
+            alert(result);
+        }
+    </script>
+    <h2>-------------------------------------------------------</h2>
+    <button type="button" onclick="mostrar();">Alert</button>
+    <!-- PARTE DE FILTERS -->
+        <br>
+    {% filter force_escape|upper %}
+        tudo em caixa alta
+    {% endfilter %}
+        <br>
+    {% filter force_escape|lower %}
+        TUDO EM MINUSCÚLO
+    {% endfilter %}
+    <br>
+    <!--Filter now padrão do django-->
+    {% now "j D M Y h:m:s" %}
+    <br>
+    <!--Filter personalizado-->
+    <!-- 12|adiciona_array -->
+
+    
 {% endblock %}

@@ -2,3 +2,4 @@
 /protocol-system-venv
 .env
 db.sqlite3
+*.md

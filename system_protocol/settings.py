@@ -23,10 +23,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
 
+#IP's para acesso do debug_toolbar
+#TODO: Não esquecer de configurar as settings de IP do projeto
+INTERNAL_IPS = [
+    # ...
+    '127.0.0.1',
+    # ...
+]
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
 
@@ -42,6 +50,16 @@ INSTALLED_APPS = [
     #myapss
     'painel',
     'home',
+    'protocolo',
+    'setor',
+    'funcionario',
+    'rest_framework',
+    'bootstrap4',
+
+
+
+
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'system_protocol.urls'
@@ -85,6 +104,13 @@ DATABASES = {
     }
 }
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -122,6 +148,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+
+MEDIA_URL = '/media/' #A URL que o django ir buscar o arquivo e media.
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #pasta raiz do progeto onde será gravado os aquivos de media
+
 #static file manager
 STATICFILES_DIRS = [
     'statics',
@@ -131,21 +162,11 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-MEDIA_URL = '/media/'
-
-MEDIA_ROOT = 'media'
-
 LOGIN_URL = '/login/'
 
-LOGIN_REDIRECT_URL = 'person_list'
+LOGIN_REDIRECT_URL = 'painel_home'
 
-
-
-
-STATIC_URL = '/static/'
+LOGOUT_REDIRECT_URL = 'homepage'
