@@ -4,25 +4,19 @@ from django.views.generic import TemplateView
 from rest_framework import viewsets, permissions, authentication
 from .Serializer import ContatoSerializer
 from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 
 
 #CBVS
 #TODO:Consertar forma de inserção de dados ultilizando POST
-class HomepagePainelMaster(TemplateView):
+class HomepagePainelMaster(LoginRequiredMixin, TemplateView):
     template_name = 'painel/painel_home.html'
-
+    
     def dispatch(self, request, *args, **kwargs):
-        if not self.request.user.has_perm('funcionario.rh_acess'):
+        if not request.user.has_perm('funcionario.rh_acess'):
             return redirect('404_page')
         return super(HomepagePainelMaster, self).dispatch(request, *args, **kwargs)
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        if self.request.user.has_perm('protocolo.gerar_protocolos'):
-            context['setor'] = 'Você tem prmisão para monitorar'
-    
-        return context
 
 def change_password(request):
     if request.method == 'POST':
