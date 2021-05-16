@@ -4,3 +4,7 @@
 db.sqlite3
 *.md
 /django-rest-framework
+/statics
+/templates
+*sqlite3
+/media
