@@ -6,7 +6,7 @@ from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-ADMIN = [('Ives Costa','ivespauiniam@gmil.com')]
+ADMIN = [('IvesCosta','ivespauiniam@gmail.com')]
 
 
 SECRET_KEY = config('SECRET_KEY')
@@ -145,9 +145,9 @@ LOGOUT_REDIRECT_URL = 'homepage'
 
 #configurações servidor SMT EMAIL
 
-EMAIL_HOST = 'smtp.hostinger.com.br'
-EMAIL_HOST_USER = 'no-response@cerberussistem.com.br'
-DEFAULT_FROM_EMAIL='no-response@cerberussistem.com.br'
-EMAIL_HOST_PASSWORD = 'uc9mw?+5Y;b'
-EMAIL_PORT = 587
-SERVER_EMAIL = 'no-response@cerberussistem.com.br'
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+DEFAULT_FROM_EMAIL= config('DEFAULT_FROM_EMAIL')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = config('EMAIL_PORT')
+SERVER_EMAIL =  config('SERVER_EMAIL')

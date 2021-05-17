@@ -5,7 +5,7 @@ from django.db.models import Count, Min, Max, F, Avg
 from django.template.loader import render_to_string
 
 
-from django.core.mail import send_mail
+from django.core.mail import send_mail, mail_admins
 from django.db.models import signals
 from django.dispatch import receiver
 # Create your models here.
@@ -42,6 +42,11 @@ class Protocolo(models.Model):
                     'no-response@cerberussistem.com.br',
                     [str(self.funcionario.setor.email),
                     str(self.funcionario.user.email)],
+                    html_message=html_email,
+                )
+        mail_admins(
+                    f'Protocolo de Nº: {self.id} Criado.(ADMIN EMAIL)',
+                    plain_text,
                     html_message=html_email,
                 )
 

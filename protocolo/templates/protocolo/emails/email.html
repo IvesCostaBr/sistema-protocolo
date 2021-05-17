@@ -7,14 +7,11 @@
     <title>Notificação de Protocolo</title>
 </head>
 <body>
-    Olá {{ funcionario.setor.responsavel }}, este e-mail é apenas de notificação.</body>
-
-    <h3>Dados do Protocolo:<h3>
-        <ul>
-            <li>{{ protocolo }}</li>
-            <li>{{ funcionario.nome_completo }}</li>
-            <li>{{ data }}</li>
-        </ul>
-
+   <p>Olá {{ funcionario.setor.responsavel }}, este e-mail é apenas de notificação.</p> 
+    <ul title="Dados do Protocolo:">
+        <li>{{ protocolo }}</li>
+        <li>{{ funcionario.nome_completo }}</li>
+        <li>{{ data }}</li>
+    </ul>
 </body>
 </html>
