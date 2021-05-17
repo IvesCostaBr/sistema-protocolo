@@ -31,14 +31,7 @@ class FuncionarioForm(ModelForm):
                 }
         )
     )
-    setor = forms.CharField(
-        label='Setor:', widget=forms.TextInput(
-            attrs={'class': 'form-control',
-                    'type': 'text',
-                    'name': 'setor',
-                }
-        )
-    )
+    
     status_empresa= forms.CharField(
         label='Status:', widget=forms.TextInput(
             attrs={'class': 'form-control',

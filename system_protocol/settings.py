@@ -146,11 +146,8 @@ LOGOUT_REDIRECT_URL = 'homepage'
 #configurações servidor SMT EMAIL
 
 EMAIL_HOST = 'smtp.hostinger.com.br'
-
 EMAIL_HOST_USER = 'no-response@cerberussistem.com.br'
-
-EMAIL_HOST_PASSWORD = 'Bv9^aKlGfm0s'
-
-EMAIL_USE_SSL = True
-
+DEFAULT_FROM_EMAIL='no-response@cerberussistem.com.br'
+EMAIL_HOST_PASSWORD = 'uc9mw?+5Y;b'
 EMAIL_PORT = 587
+SERVER_EMAIL = 'no-response@cerberussistem.com.br'

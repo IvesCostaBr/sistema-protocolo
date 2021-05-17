@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificação de Protocolo</title>
+</head>
+<body>
+    Olá {{ funcionario.setor.responsavel }}, este e-mail é apenas de notificação.</body>
+
+    <h3>Dados do Protocolo:<h3>
+        <ul>
+            <li>{{ protocolo }}</li>
+            <li>{{ funcionario.nome_completo }}</li>
+            <li>{{ data }}</li>
+        </ul>
+
+</body>
+</html>
